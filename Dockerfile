@@ -2,5 +2,5 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY . .
 RUN chmod +x ./mvnw
-RUN ./mvnw clean install
-CMD ["./mvnw", "spring-boot:run"]
+RUN ./mvnw package -DskipTests
+CMD ["java", "-jar", "target/*.jar"]
